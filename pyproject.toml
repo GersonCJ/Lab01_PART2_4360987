@@ -1,7 +1,14 @@
 [project]
 name = "lab01-part02-4360987"
 version = "0.1.0"
-description = "Add your description here"
+description = "Second part of LAB01 - Using docker to containerize the application."
 readme = "README.md"
 requires-python = ">=3.12"
-dependencies = []
+dependencies = [
+    "dotenv>=0.9.9",
+    "fastparquet>=2026.3.0",
+    "pandas>=3.0.1",
+    "plotly>=6.6.0",
+    "psycopg2>=2.9.11",
+    "sqlalchemy>=2.0.48",
+]
