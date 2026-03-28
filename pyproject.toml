@@ -1,0 +1,7 @@
+[project]
+name = "lab01-part02-4360987"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = []
