@@ -1,0 +1,1 @@
+### docker run --name test_ext -v raw_parquet:/app/data/raw etl_pipeline -> To use volume raw_parquet
