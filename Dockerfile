@@ -9,10 +9,13 @@ ENV PATH="/root/.local/bin/:$PATH"
 WORKDIR /app
 
 # Create directory for the data
-# Bronze path
 RUN mkdir data
 
+# Bronze path
 RUN mkdir data/raw
+
+# Silver path
+RUN mkdir data/silver
 
 # Copy the project into the image
 COPY . .
