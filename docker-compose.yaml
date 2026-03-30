@@ -1,0 +1,22 @@
+services:
+  app:
+    image: medallion_pipeline
+    build: .
+    container_name: test_ext
+    command: uv run main.py
+    ports:
+      - "80:80"
+    volumes:
+      - raw_parquet:/app/data/raw
+      - transformed_silver:/app/data/silver
+
+volumes:
+  raw_parquet:
+    name: "raw_parquet"
+    labels:
+      description: "Volume to handle just extracted data"
+  
+  transformed_silver:
+    name: "transformed_silver"
+    labels:
+      description: "Volume to handle transformed data"
