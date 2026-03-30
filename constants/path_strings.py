@@ -1,4 +1,5 @@
 from pathlib import Path
+
 bronze_path = "/app/data/raw"
 silver_path = "/app/data/silver"
 url_main = "https://raw.githubusercontent.com/owid/co2-data/a499dd34c1372468f2335a370c5dd13cc3a72d90/owid-co2-data.csv"

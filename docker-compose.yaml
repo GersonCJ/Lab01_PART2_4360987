@@ -2,13 +2,31 @@ services:
   app:
     image: medallion_pipeline
     build: .
-    container_name: test_ext
+    container_name: Medallion_pipeline
     command: uv run main.py
     ports:
       - "80:80"
     volumes:
       - raw_parquet:/app/data/raw
       - transformed_silver:/app/data/silver
+    depends_on:
+      - postgres-db
+    networks:
+      - private_network
+
+  postgres-db:
+    image: postgres
+    container_name: postgres_db 
+    # restart: always
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+    volumes:
+      - data_sql:/var/lib/postgresql
+      - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - private_network
 
 volumes:
   raw_parquet:
@@ -20,3 +38,12 @@ volumes:
     name: "transformed_silver"
     labels:
       description: "Volume to handle transformed data"
+
+  data_sql:
+    name: "data_sql"
+    labels:
+      description: "Postgresql persistent data storage"
+
+networks:
+  private_network:
+    driver: bridge
