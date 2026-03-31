@@ -18,7 +18,7 @@ services:
   postgres-db:
     image: postgres
     container_name: postgres_db 
-    # restart: always
+    restart: always
     environment:
       POSTGRES_USER: ${DB_USER}
       POSTGRES_PASSWORD: ${DB_PASSWORD}
@@ -28,6 +28,20 @@ services:
       - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql
     networks:
       - private_network
+      - front_network
+
+  metabase:
+    image: metabase/metabase:latest
+    container_name: metabase
+    restart: always
+    environment:
+      MB_DB_FILE: /metabase-data/metabase
+    volumes:
+      - ./frontend/metabase_data:/metabase-data
+    ports:
+      - "3000:3000"
+    networks:
+      - front_network
 
 volumes:
   raw_parquet:
@@ -47,4 +61,6 @@ volumes:
 
 networks:
   private_network:
+    driver: bridge
+  front_network:
     driver: bridge
