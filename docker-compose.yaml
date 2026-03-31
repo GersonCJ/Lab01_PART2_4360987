@@ -9,6 +9,7 @@ services:
     volumes:
       - raw_parquet:/app/data/raw
       - transformed_silver:/app/data/silver
+      - ./gx_docs:/app/gx
     depends_on:
       - postgres-db
     networks:

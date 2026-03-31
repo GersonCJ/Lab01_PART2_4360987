@@ -1,4 +1,5 @@
 from constants import path_strings
+from data_quality import gx
 from dotenv import load_dotenv
 from pathlib import Path
 from sqlalchemy import create_engine
@@ -29,6 +30,10 @@ def main():
 
     raw_data = trf.load_bronze(path_strings.raw_main_path)
     metadata = trf.load_bronze(path_strings.raw_metadata_path)
+
+    # Validation Layer on raw data
+
+    gx.run_validation()
 
     # ------------------- Transformations
 
