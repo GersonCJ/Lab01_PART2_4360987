@@ -43,6 +43,14 @@ services:
     networks:
       - front_network
 
+  web-service:
+    image: nginx
+    container_name: static_web
+    volumes:
+      - ./gx_docs/gx/uncommitted/data_docs/local_site:/usr/share/nginx/html
+    ports:
+      - "8080:80"
+
 volumes:
   raw_parquet:
     name: "raw_parquet"

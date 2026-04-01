@@ -19,6 +19,7 @@ def main():
     url_metadata = path_strings.metadata_url
     bronze_path = Path(path_strings.bronze_path)
     silver_path = Path(path_strings.silver_path)
+    mounted_gx_location = path_strings.gx_location
 
     # ------------------ Extraction using commit a499dd34c1372468f2335a370c5dd13cc3a72d90
     
@@ -32,9 +33,10 @@ def main():
     metadata = trf.load_bronze(path_strings.raw_metadata_path)
 
     # Validation Layer on raw data
-
-    gx.run_validation()
-
+    if not any(mounted_gx_location.iterdir()):
+        gx.run_validation()
+    else:
+        print("Validation already performed. Verify the results html results.")
     # ------------------- Transformations
 
     # 1. Drop duplicates and Drop Data where Country, Year and Population are Nan.
@@ -112,10 +114,6 @@ def main():
 
     for table_name, df in filtered_gold_tables.items():
         ld.push_to_db(df, table_name, engine, schema="co2_project")
-
-    # 7. Query test
-    query_test = """SELECT * FROM co2_project.fact_emissions LIMIT 5;"""
-    print(ld.run_query(query_test, engine))
 
 
 if __name__ == "__main__":
