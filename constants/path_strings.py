@@ -8,3 +8,4 @@ raw_main_path = Path(bronze_path) / "owid_co2_raw_data.csv"
 raw_metadata_path = Path(bronze_path) / "owid_co2_codebook.csv"
 silver_national_path = Path(silver_path) / "National_table_parquet.parquet"
 silver_aggregate_path = Path(silver_path) / "Aggregate_table_parquet.parquet"
+gx_location = Path("/app/gx")

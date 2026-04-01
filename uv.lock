@@ -511,7 +511,6 @@ dependencies = [
     { name = "fastparquet" },
     { name = "great-expectations" },
     { name = "pandas" },
-    { name = "plotly" },
     { name = "psycopg2-binary" },
     { name = "sqlalchemy" },
 ]
@@ -522,7 +521,6 @@ requires-dist = [
     { name = "fastparquet", specifier = ">=2026.3.0" },
     { name = "great-expectations", specifier = ">=1.15.1" },
     { name = "pandas", specifier = ">=3.0.1" },
-    { name = "plotly", specifier = ">=6.6.0" },
     { name = "psycopg2-binary", specifier = ">=2.9.11" },
     { name = "sqlalchemy", specifier = ">=2.0.48" },
 ]
@@ -740,19 +738,6 @@ wheels = [
     { url = "https://files.pythonhosted.org/packages/6d/02/c6e04b694ffd68568297abd03588b6d30295265176a5c01b7459d3bc35a3/pandas-3.0.1-cp314-cp314t-musllinux_1_2_x86_64.whl", hash = "sha256:15860b1fdb1973fffade772fdb931ccf9b2f400a3f5665aef94a00445d7d8dd5", size = 11810974, upload-time = "2026-02-17T22:20:08.946Z" },
     { url = "https://files.pythonhosted.org/packages/89/41/d7dfb63d2407f12055215070c42fc6ac41b66e90a2946cdc5e759058398b/pandas-3.0.1-cp314-cp314t-win_amd64.whl", hash = "sha256:44f1364411d5670efa692b146c748f4ed013df91ee91e9bec5677fb1fd58b937", size = 10884622, upload-time = "2026-02-17T22:20:11.711Z" },
     { url = "https://files.pythonhosted.org/packages/68/b0/34937815889fa982613775e4b97fddd13250f11012d769949c5465af2150/pandas-3.0.1-cp314-cp314t-win_arm64.whl", hash = "sha256:108dd1790337a494aa80e38def654ca3f0968cf4f362c85f44c15e471667102d", size = 9452085, upload-time = "2026-02-17T22:20:14.331Z" },
-]
-
-[[package]]
-name = "plotly"
-version = "6.6.0"
-source = { registry = "https://pypi.org/simple" }
-dependencies = [
-    { name = "narwhals" },
-    { name = "packaging" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/24/fb/41efe84970cfddefd4ccf025e2cbfafe780004555f583e93dba3dac2cdef/plotly-6.6.0.tar.gz", hash = "sha256:b897f15f3b02028d69f755f236be890ba950d0a42d7dfc619b44e2d8cea8748c", size = 7027956, upload-time = "2026-03-02T21:10:25.321Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/52/d2/c6e44dba74f17c6216ce1b56044a9b93a929f1c2d5bdaff892512b260f5e/plotly-6.6.0-py3-none-any.whl", hash = "sha256:8d6daf0f87412e0c0bfe72e809d615217ab57cc715899a1e5145135a7800d1d0", size = 9910315, upload-time = "2026-03-02T21:10:18.131Z" },
 ]
 
 [[package]]
