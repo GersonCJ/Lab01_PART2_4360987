@@ -4,8 +4,6 @@ services:
     build: .
     container_name: Medallion_pipeline
     command: uv run main.py
-    ports:
-      - "80:80"
     volumes:
       - raw_parquet:/app/data/raw
       - transformed_silver:/app/data/silver
