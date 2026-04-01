@@ -90,6 +90,12 @@ A partir das tabelas do PostgreSQL, 7 queries de negócio são executadas e um d
 
 # 3. Instruções de Execução
 Este projeto é totalmente containerizado e não requer instalação de dependências Python locais.
+Antes de executar o projeto, crie um arquivo `.env` na raiz do repositório a partir do arquivo `.env.example`.
+
+Ou apenas execute no terminal:
+`cp .env.example .env`
+
+Opcionalmente, edite as variáveis de ambiente com suas próprias credenciais. Caso não sejam alteradas, os valores padrão já permitem a execução completa do projeto.
 
 Pré-requisitos:
 - Docker
