@@ -76,7 +76,9 @@ Finally, the project's pipeline was divided into modular steps to guarantee scal
 These steps are: 
 
 ### STEP A: Ingestion (Python)
-The raw data was extracted from the site: _https://github.com/owid/co2-data_.
+The data used for the project comes from the OWID - Our World in Data - Organization, that disponibilizes data from the emissions of CO2 gases from various sources worldwide, since the year when the measurement started for each country. 
+
+The raw data was extracted from their github: `https://github.com/owid/co2-data`.
 
 And they were consequently stored at the Container's path `/app/data/raw` and mapped to named volume `raw_parquet` to be persisted as explained above.
 
@@ -112,8 +114,8 @@ To run the project you will need to have installed **Docker Engine** (Linux) or 
 Thanks to Docker, this project is totally containerized and does not require further dependencies' installation.
 
 Before executing the project you will first have to clone the project in your machine:
-- Use `git@github.com:GersonCJ/Lab01_PART2_4360987.git` via SSH.
-- Use `https://github.com/GersonCJ/Lab01_PART2_4360987.git` via HTTPS.
+- Use `git@github.com:GersonCJ/ETL_Medallion_USP_Project.git` via SSH.
+- Use `https://github.com/GersonCJ/ETL_Medallion_USP_Project.git` via HTTPS.
 
 After the project has been cloned, make sure to create a `.env` file in the project root folder following the example on `.env.example`. - Or just run on the terminal: `cp .env.example .env`
 
