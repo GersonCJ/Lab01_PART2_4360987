@@ -122,7 +122,7 @@ After the project has been cloned, make sure to create a `.env` file in the proj
 Optionally, edit the environment variables with your own credentials. If the credentials are not altered, the standard values already allow to the full execution of the project.
 
 To reproduce all of the environment and run the project, just open the terminal and execute the following command:
-`docker compose up -d --build`
+`docker-compose up -d --build`
 
 This command will:
 - Build the image for the docker application;
@@ -142,7 +142,8 @@ http://localhost:3000
 - After entering in the Metabase's UI, search for the Dashboard at: `COLLECTIONS -> Shared Collections -> Project Dashboards -> Co2 Project Analysis`
 
 - After stop using the project, make sure to execute in the terminal:
-`docker compose down`
+`docker-compose down -v`
 
 This command will:
 - Remove the created containers.
+- Remove the named volumes.
