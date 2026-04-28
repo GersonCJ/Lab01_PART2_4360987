@@ -1,5 +1,5 @@
 [project]
-name = "lab01-part02-4360987"
+name = "ETL_MEDALLION_USP_PROJECT"
 version = "0.1.0"
 description = "Second part of LAB01 - Using docker to containerize the application."
 readme = "README.md"
