@@ -33,10 +33,9 @@ def main():
     metadata = trf.load_bronze(path_strings.raw_metadata_path)
 
     # Validation Layer on raw data
-    if not any(mounted_gx_location.iterdir()):
-        gx.run_validation()
-    else:
-        print("Validation already performed. Verify the results html results.")
+
+    gx.run_validation()
+
     # ------------------- Transformations
 
     # 1. Drop duplicates and Drop Data where Country, Year and Population are Nan.
