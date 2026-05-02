@@ -7,7 +7,7 @@ services:
     volumes:
       - raw_parquet:/app/data/raw
       - transformed_silver:/app/data/silver
-      - ./gx_docs:/app/gx
+      - gx_docs:/app/gx
     depends_on:
       - postgres-db
     networks:
@@ -23,10 +23,16 @@ services:
       POSTGRES_DB: ${DB_NAME}
     volumes:
       - data_sql:/var/lib/postgresql
-      - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql:Z
     networks:
       - private_network
       - front_network
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "${DB_USER}", "-d", "${DB_NAME}"]
+      interval: 10s
+      retries: 5
+      start_period: 10s
+      timeout: 5s
 
   metabase:
     image: metabase/metabase:latest
@@ -42,10 +48,10 @@ services:
       - front_network
 
   web-service:
-    image: nginx
+    image: nginx:alpine
     container_name: static_web
     volumes:
-      - ./gx_docs/gx/uncommitted/data_docs/local_site:/usr/share/nginx/html
+      - gx_docs:/usr/share/nginx/html:ro
     ports:
       - "8080:80"
 
@@ -64,6 +70,11 @@ volumes:
     name: "data_sql"
     labels:
       description: "Postgresql persistent data storage"
+
+  gx_docs:
+    name: "gx_docs"
+    labels:
+      description: "Named volume to be shared amongst app (Medallion pipeline) and static_gx"
 
 networks:
   private_network:

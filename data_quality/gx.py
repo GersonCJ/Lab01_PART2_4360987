@@ -7,7 +7,7 @@ from pathlib import Path
 def run_validation():
 
     # Create the Data context
-    context = gx.get_context(mode="file", project_root_dir="/app/gx")
+    context = gx.get_context(mode="file", project_root_dir="/app/gx_docs")
 
     # Define the Data Source's parameters:
     # This path is relative to the `base_directory` of the Data Context.
